@@ -27,7 +27,7 @@ A ideia é integrar o **React Native Maps** para exibir a localização dos carr
    npm install
 
 3. Rodar o projeto: Você pode rodar o projeto utilizando o Expo CLI:
-   expo start
+   expo start ou npm start
 
    Isso abrirá o servidor de desenvolvimento, e você pode escanear o QR code utilizando o Expo Go no seu dispositivo para testar o app em tempo real.
 
