@@ -1,13 +1,16 @@
 import React from "react";
-import { View, Alert, Button } from "react-native";
+import { Alert, Button } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { loginUser } from "../controllers/AuthController";
 import { Container, Title, Input, ErrorText } from "./loginscreenstyle";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../utils/zodValidations";
+import { useNavigation } from "@react-navigation/native";
+import type { NavigationProp } from "../../@types/navigation";
 
 const LoginScreen = () => {
 
+  const navigatetion = useNavigation<NavigationProp>();
   type FormData = {
     username: string;
     password: string;
@@ -20,9 +23,9 @@ const LoginScreen = () => {
   const onSubmit = ({ username, password }: { username: string; password: string }) => {
     loginUser(username, password, (success) => {
       if (success) {
-        Alert.alert("Login success");
+        navigatetion.navigate("HomeScreen");
       } else {
-        Alert.alert("Login failed");
+        Alert.alert("Erro", "Usuário ou senha inválidos.");
       }
     });
   };
